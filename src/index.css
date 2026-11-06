@@ -1,0 +1,89 @@
+@import 'tailwindcss';
+
+/* El modo oscuro se activa con la clase .dark en <html> (no con la preferencia del sistema),
+   así el usuario puede alternarlo con el ThemeToggle. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Tokens semánticos: cambian según el modo. Modo claro = "Domingo de sofá". */
+:root {
+  --bg: #f6f4ef;
+  --surface: #ffffff;
+  --surface-2: #ece9e1;
+  --ink: #0e0e14;
+  --muted: #55545f;
+  --line: #d9d5ca;
+  --accent-text: #b0124f;
+  --danger-text: #b91c1c;
+}
+
+/* Modo oscuro = "Maratón de madrugada" (por defecto). */
+.dark {
+  --bg: #0e0e14;
+  --surface: #181822;
+  --surface-2: #22222e;
+  --ink: #f6f4ef;
+  --muted: #a9a8b4;
+  --line: #2e2e3b;
+  --accent-text: #d7ff3a;
+  --danger-text: #ff6b6b;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent-text: var(--accent-text);
+  --color-danger-text: var(--danger-text);
+}
+
+@theme {
+  /* Colores de marca: fijos en ambos modos, siempre con texto tinta encima */
+  --color-volt: #d7ff3a;
+  --color-fucsia: #ff2d7a;
+  --color-naranja: #ff7a1a;
+  --color-violeta: #7c5cff;
+  --color-danger: #ff4545;
+  --color-tinta: #0e0e14;
+  --color-papel: #f6f4ef;
+
+  --font-display: 'Archivo', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Tipografía de cartel para títulos y cifras grandes */
+@utility font-display {
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-bg font-sans text-ink antialiased;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-fucsia;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
