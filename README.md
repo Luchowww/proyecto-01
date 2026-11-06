@@ -6,7 +6,8 @@ fecha estimada para cruzar la meta.
 
 Proyecto 01 · Semana 12 (UX, Dark Mode y Build) — desarrollo web frontend.
 
-- **Demo:** _pendiente (URL de Vercel)_
+- **Demo:** [proyecto-01-ld.vercel.app](https://proyecto-01-ld.vercel.app/)
+- **Repositorio:** [github.com/Luchowww/proyecto-01](https://github.com/Luchowww/proyecto-01)
 - **Datos:** [API de TVMaze](https://www.tvmaze.com/api) (pública, sin API key, licencia CC BY-SA)
 
 ## La idea
